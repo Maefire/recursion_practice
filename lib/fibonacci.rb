@@ -19,6 +19,12 @@ end
 p fibs(8)
 # [0, 1, 1, 2, 3, 5, 8, 13]
 
+# Ruby is crazy. The base case is an array, which eventually causes an array to be built, that
+# will contain the numbers needed.
+# results[-1] looks at the built array, selects the last position, and subtracts 1 from it
+# results[-2] does the same for the second to last position.
+# it then adds these numbers up, and puts them into results array.
+# to print each number, I use a range from 0 to inclusive n
 def fibs_rec(n)
   return [0] if n.eql?(0)
   return [0, 1] if n.eql?(1)
