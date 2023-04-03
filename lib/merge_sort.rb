@@ -5,15 +5,16 @@ def random_array(num)
   num.times.map { rand(10) }
 end
 
-def merger(array, results = [])
+def merger(array)
   return array if array.length.eql?(1)
 
   # sort array into halves
   arr_halved = array.length / 2
   # use halved array to set left and right halves
   left = merger(array[0...arr_halved])
-  right = merger(array[arr_halved..array.length])
+  right = merger(array[arr_halved..])
 
+  results = []
   # this will check the first value of left, check if it is <= right
   # if so, left.shift the element into the results array. If not, right.shift instead
   until left.empty? || right.empty?
@@ -25,4 +26,4 @@ def merger(array, results = [])
 
   results + left + right
 end
-p merger(random_array(10))
+p merger(random_array(4))
