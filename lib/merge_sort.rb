@@ -17,7 +17,7 @@ def merger(array)
   results = []
   # this will check the first value of left, check if it is <= right
   # if so, left.shift the element into the results array. If not, right.shift instead
-  while !left.empty? && !right.empty?
+  until left.empty? || right.empty?
     # puts shows how it does the sorting, nothing more
     # puts "Left:#{left}, Right:#{right}"
     results << ((left[0] <= right[0]) ? left.shift : right.shift)
